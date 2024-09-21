@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Information</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .contact-container {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #00aaff;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #dcdcdc;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            margin: 20px 0;
+        }
+
+        .contact-info div {
+            margin-bottom: 10px;
+        }
+
+        .contact-info div span {
+            font-weight: 700;
+            color: #00aaff;
+        }
+
+        a {
+            color: #00aaff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #008ecc;
+        }
+
+        button {
+            background-color: #00aaff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        button:hover {
+            background-color: #008ecc;
+            transform: scale(1.05);
+        }
+
+        .social-icons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            color: #ffffff;
+            font-size: 1.5em;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #00aaff;
+        }
+        
+        strong
+        {
+            color: #00aaff;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+
+            .contact-container {
+                padding: 20px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+
+    <div class="contact-container">
+        <h1>Contact Information</h1>
+        <p>If you would like to get in touch with me, feel free to use the contact details below or reach out through my social media profiles.</p>
+
+        <div class="contact-info">
+            <div class="email-list">
+                <p><strong>Email 1:</strong> jpc4483@rit.edu</p>
+                <p><strong>Email 2:</strong> jpc4483@g.rit.edu</a></p>
+                <p><strong>Email 3:</strong> jonathan585433@gmail.com </a></p>
+            </div>
+            <div><span>Phone:</span> 860-268-1845</div>
+            <div><span>Location:</span> Rochester, NY, USA</div>
+        </div>
+
+        <button onclick="window.location.href='index.html'">Return to Portfolio</button>
+
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/jonathan-ciottone-7863b1236/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
+
+</body>
+</html>
+

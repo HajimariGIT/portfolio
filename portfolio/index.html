@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonathan's Game Design Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+            border-bottom: 2px solid #00aaff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-grow: 1;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            padding: 0.5em 1em;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #00aaff;
+        }
+
+        .navbar-highlight {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #00aaff;
+            padding: 0.5em 1em;
+        }
+
+        main {
+            padding-top: 4em;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .welcome-section {
+            text-align: center;
+            padding: 5em 2em;
+            background: linear-gradient(135deg, #1a1a1a, #172758);
+            border-top: 15px solid #ffffff;
+            border-bottom: 15px solid #ffffff;
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .welcome-section h1 {
+            font-size: 5em;
+            color: #ffffff;
+            margin: 0;
+            display: inline-block;
+            padding-bottom: 0.2em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .welcome-section .subheading {
+            font-size: 1.5em;
+            color: #dcdcdc;
+            margin-top: 1em;
+            text-transform: none;
+            animation: fadeInUp 1.5s ease-out 0.5s;
+            animation-fill-mode: both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .intro, .action-section, .featured-work, .game {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 2s ease-out, transform 2s ease-out;
+        }
+
+        .intro {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #1a1a1a, #333333);
+            padding: 0 2em;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .intro-text h1 {
+            font-size: 2.5vw;
+            color: #00aaff;
+            display: inline-block;
+            padding-bottom: 0.2em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            position: relative;
+            margin-top: 130px;
+            margin-bottom: 0;
+            text-transform: uppercase;
+            margin-left: 25px;
+        }
+
+        .intro-text h2 {
+            font-size: 1vw;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid #ffffff;
+            padding-bottom: 0.2em;
+            margin-top: 0.1em;
+            margin-left: 25px;
+        }
+
+        .intro-text {
+            padding-right: 2em;
+            margin-bottom: 90px;
+        }
+
+        .intro p {
+            max-width: 700px;
+            font-size: 1.4vw;
+            background-color: #333333;
+            padding: 1em;
+            border-radius: 25px;
+            color: #ffffff;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            margin-left: 15px;
+        }
+
+        #picOne {
+            width: 45%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            border-radius: 25px;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+            padding: 10px;
+            background-color: #073f5b;
+            box-shadow: 
+                0 0 0 10px #07364e, 
+                0 0 0 20px #0f2e3d, 
+                0 0 0 30px #0f2530, 
+                0 0 0 40px #10212a;
+        }
+
+        .intro::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.5) 100%);
+            z-index: 0;
+        }
+
+        .action-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 6em 0;
+            background: linear-gradient(135deg, #1a1a1a, #172758);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 2s ease-out, transform 2s ease-out;
+        }
+
+        .action-box {
+            background-color: #262626;
+            border: 7px solid #00aaff;
+            margin: 4em;
+            padding: 1em;
+            border-radius: 8px;
+            box-shadow: 
+                inset 0 0 0 25px #515151, 
+                0 4px 8px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-align: center;
+            width: 300px;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: -15px;
+        }
+
+        .action-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px 5px #00aaff;
+        }
+
+        .action-box h2 {
+            color: #00aaff;
+            font-size: 35px;
+            margin: 0;
+        }
+
+        .featured-work {
+            text-align: center;
+            padding: 2em 0;
+            background: linear-gradient(135deg, #202020, #333333);
+            min-height: 100vh;
+            margin-bottom: 2em;
+            border-top: 3px solid #00aaff;
+        }
+
+        .featured-work h2 {
+            font-size: 3em;
+            color: #00aaff;
+            margin-bottom: 1em;
+            border-bottom: 2px solid #ffffff;
+            display: inline-block;
+            padding-bottom: 0.2em;
+        }
+
+        .portfolio {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0 2em;
+        }
+
+        .game {
+            background-color: #1a1a1a;
+            margin: 1em;
+            padding: 1em;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 310px;
+        }
+
+        .game img {
+            width: 310px;
+            height: 393px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .game h2 {
+            margin-top: 0.5em;
+            text-align: center;
+            color: #00aaff;
+        }
+
+        .game:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px 5px #00aaff;
+        }
+
+        @media (min-width: 2100px) {
+    .intro-text {
+        margin-left: 2%; 
+        text-align: left; 
+    }
+
+    .intro-text h1 {
+        font-size: 2.5vw; 
+    }
+
+    .intro-text h2 {
+        font-size: 1.7vw; 
+    }
+
+    .intro-text p {
+        font-size: 1vw; 
+        font-size: 35px;
+        max-width: 800px; 
+    }
+}
+
+        
+
+        @media (max-width: 1570px) {
+    .intro {
+        flex-direction: column;
+        text-align: center;
+        margin-top: 0; 
+        justify-content: center;
+        align-items: center;
+        padding-top: 1em; 
+    }
+
+    .intro-text {
+        padding-right: 0;
+        margin-left: 0;
+        margin-bottom: 0.5em;
+        font-size: 5.5vw;
+        width: auto;
+        text-align: center;
+        display: block;
+        margin-bottom: 100px;
+    }
+
+    .intro h1 {
+        font-size: 3.5vw;
+    }
+
+    .intro h2 {
+        font-size: 3.5vw;
+        
+    }
+
+    
+    .intro p {
+        text-align: center; 
+        margin: 0 auto; 
+        font-size: 1.7vw;
+        max-width: 80%; 
+        margin-bottom: 15vw;
+    }
+
+    #picOne {
+        display: none;
+    }
+
+    .action-section {
+        flex-direction: column;
+        padding-top: 1em; 
+    }
+
+    .portfolio {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 1em; 
+    }
+
+    .game, .action-box {
+        width: 90%;
+    }
+
+    header {
+        flex-direction: column;
+    }
+
+    .navbar-highlight {
+        margin: 1em 0;
+    }
+}
+
+
+@media (max-width: 1000px) {
+    
+    .intro-text p, nav 
+    { 
+        display: none;
+    }
+
+    .intro-text h1, .intro-text h2 {
+        display: block; 
+        font-size: 7vw; 
+        text-align: center; 
+    }
+
+    
+    .welcome-section h1 {
+        font-size: 10vw; 
+        text-align: center; 
+        margin: 0; 
+        padding: 0; 
+    }
+
+    .welcome-section {
+        padding: 2em 1em; 
+    }
+
+    .welcome-section .subheading {
+        font-size: 4vw; 
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+        .game-details {
+            display: none;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            background-color: #1a1a1a;
+            padding: 2em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+        .media-gallery {
+            width: 60%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .media-container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .scroll-button {
+            background: url('images/arrow.png') no-repeat center center;
+            background-size: contain;
+            width: 50px;
+            height: 50px;
+            border: none;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .scroll-button.left {
+            left: 20px;
+        }
+
+        .scroll-button.right {
+            right: 20px;
+        }
+
+        .description {
+            flex: 1;
+            padding-left: 2em;
+        }
+
+        .description h2 {
+            color: #00aaff;
+            margin-top: 0;
+        }
+
+        @media (max-width: 768px) {
+            .game-details {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .media-gallery {
+                width: 100%;
+                margin: 0 0 1em 0;
+            }
+
+            .description {
+                width: 100%;
+                padding-left: 0;
+            }
+
+            .scroll-button {
+                display: none;
+            }
+        }
+
+        button.back-button {
+            background-color: #00aaff;
+            color: #fff;
+            border: none;
+            padding: 0.5em 1em;
+            margin-top: 2em;
+            cursor: pointer;
+            border-radius: 4px;
+            align-self: center;
+        }
+
+        .home-icon {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .home-icon img {
+            width: 30px;
+            margin-right: 0.5em;
+        }
+
+        .navbar-game-name {
+            font-size: 1.2em;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#intro">Intro</a>
+            <a href="#featured-work">Featured Work</a>
+            <span class="navbar-highlight">PORTFOLIO</span>
+            <a href="#coding-game-design">Coding/Game Design</a>
+            <a href="#art">Art</a>
+        </nav>
+    </header>
+    <main>
+        <section class="intro" id="intro">
+            <div class="intro-text">
+                <br>
+                <h1>Jonathan Ciottone</h1>
+                <h2>Game Designer and Software Developer</h2>
+                <br>
+                <p>
+                    I'm a game designer from CT with strong technical skills and a deep passion for creating immersive gaming experiences. Currently, I'm pursuing a degree in Game Design and Development at RIT, where I've developed expertise across various aspects of game design and development.
+                    <br><br>
+                    My technical skills have landed me roles ranging from gameplay programmer to lead level designer. I focus on delivering quality, allowing each game to reach it's full potential. Everything you see here was developed by me—including this website.
+                    <br><br>
+                    I hope to continue to bring my skills to the industry and strive to advance the technical development of gaming to create unparalleled gaming experiences.
+            </div>
+            <img src="images/me_two.jpeg" alt="Jonathan's Picture" id="picOne">
+        </section>
+        
+        <section class="welcome-section">
+            <h1>Welcome</h1>
+            <p class="subheading">I look forward to getting connected</p>
+        </section>
+        
+        <section class="action-section">
+            <div class="action-box" onclick="openContactInfo()">
+                <h2>Contact Info</h2>
+            </div>
+            <div class="action-box" onclick="downloadResume()">
+                <h2>Download Resume</h2>
+            </div>
+            <div class="action-box" onclick="scrollToPortfolio()">
+                <h2>Portfolio</h2>
+            </div>
+        </section>
+        
+        <section class="featured-work" id="featured-work">
+            <h2>Featured Work</h2>
+            <div class="portfolio" id="portfolio">
+                <div class="game" onclick="openGamePage('game1.html')">
+                    <img src="images/changeling.jpg" alt="Game 1 Thumbnail">
+                    <h2>Changeling</h2>
+                </div>
+                <div class="game" onclick="openGamePage('game2.html')">
+                    <img src="images/sonic_main.png" alt="Game 2 Thumbnail">
+                    <h2>Sonic Galactic</h2>
+                </div>
+                <div class="game" onclick="openGamePage('game3.html')">
+                    <img src="images/fear_man.png" alt="Game 3 Thumbnail">
+                    <h2>Fear Man</h2>
+                </div>
+                <div class="game" onclick="openGamePage('game4.html')">
+                    <img src="images/headless.png" alt="Game 4 Thumbnail">
+                    <h2>Headless Harry</h2>
+                </div>
+                <div class="game" onclick="openGamePage('game5.html')">
+                    <img src="images/the_syndicate.png" alt="Game 5 Thumbnail">
+                    <h2>The Syndicate</h2>
+                </div>
+                <div class="game" onclick="openGamePage('game6.html')">
+                    <img src="images/agent_1.png" alt="Game 6 Thumbnail">
+                    <h2>Agent Cat</h2>
+                </div>
+            </div>
+        </section>
+        
+        <section class="featured-work" id="coding-game-design">
+            <h2>Coding/Game Design</h2>
+            <div class="portfolio" id="portfolio2">
+                <div class="game" onclick="openGamePage('game7.html')">
+                    <img src="images/ai_one.png" alt="Game 7 Thumbnail">
+                    <h2>AI Agents-   Night Till Dawn</h2>
+                </div>
+                <div class="game" onclick="openGamePage('game8.html')">
+                    <img src="images/brand_cover.png" alt="Game 7 Thumbnail">
+                    <h2>Shootem Up-     Bad Branding</h2>
+                </div>
+                <div class="game" onclick="openGamePage('game9.html')">
+                    <img src="images/speed_ball_cover.png" alt="Game 10 Thumbnail">
+                    <h2>SpeedBall</h2>
+                </div> <div class="game" onclick="openGamePage('game1.html')">
+                    <img src="images/changeling.jpg" alt="Game 1 Thumbnail">
+                    <h2>Changeling</h2>
+                </div>
+                <div class="game" onclick="openGamePage('game2.html')">
+                    <img src="images/sonic_main.png" alt="Game 2 Thumbnail">
+                    <h2>Sonic Galactic</h2>
+                </div>
+                <div class="game" onclick="openGamePage('game3.html')">
+                    <img src="images/fear_man.png" alt="Game 3 Thumbnail">
+                    <h2>Fear Man</h2>
+                </div>
+                <div class="game" onclick="openGamePage('game4.html')">
+                    <img src="images/headless.png" alt="Game 4 Thumbnail">
+                    <h2>Headless Harry</h2>
+                </div>
+                <div class="game" onclick="openGamePage('game5.html')">
+                    <img src="images/the_syndicate.png" alt="Game 5 Thumbnail">
+                    <h2>The Syndicate</h2>
+                </div>
+                <div class="game" onclick="openGamePage('game6.html')">
+                    <img src="images/agent_1.png" alt="Game 6 Thumbnail">
+                    <h2>Agent Cat</h2>
+                </div>
+                <div class="game" onclick="openGamePage('game10.html')">
+                    <img src="images/spec_1.png" alt="Game 6 Thumbnail">
+                    <h2>Game informer website</h2>
+                </div>
+                <div class="game" onclick="openGamePage('game11.html')">
+                    <img src="images/web_1_1.png" alt="Game 6 Thumbnail">
+                    <h2>Arkham Series Deep Dive Website</h2>
+                </div>
+                <div class="game" onclick="openGamePage('game12.html')">
+                    <img src="images/web_2_1.png" alt="Game 6 Thumbnail">
+                    <h2>API website</h2>
+                </div>
+                <div class="game" onclick="openGamePage('game13.html')">
+                    <img src="images/dining_cover.png" alt="Game 6 Thumbnail">
+                    <h2>Deadly Dining</h2>
+                </div>
+            </div>
+        <section class="featured-work" id="art">
+            <h2>Art</h2>
+            <div class="portfolio" id="portfolio3">
+                <div class="game" onclick="openGamePage('game14.html')">
+                    <img src="images/art_chess.PNG" alt="Game 11 Thumbnail">
+                    <h2>Chessboard</h2>
+                </div>
+                <div class="game" onclick="openGamePage('game15.html')">
+                    <img src="images/art_4.PNG" alt="Game 12 Thumbnail">
+                    <h2>Soul Eater weapon one</h2>
+                </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+      function openContactInfo() {
+    window.location.href = 'contact.html';
+}
+
+
+        function downloadResume() {
+            window.location.href = 'down.html';
+        }
+
+        function scrollToPortfolio() {
+            document.getElementById('featured-work').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function openGamePage(gamePage) {
+            window.location.href = gamePage;
+        }
+
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top < window.innerHeight &&
+                rect.bottom >= 0
+            );
+        }
+
+        function checkAnimation() {
+            const elements = document.querySelectorAll('.intro, .welcome-section, .action-section, .featured-work, .game');
+            elements.forEach(element => {
+                if (isInViewport(element)) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        function loadIntro() {
+            const intro = document.querySelector('.intro');
+            intro.style.opacity = '1';
+            intro.style.transform = 'translateY(0)';
+        }
+
+        window.addEventListener('scroll', () => {
+            checkAnimation();
+        });
+
+        window.addEventListener('load', () => {
+            loadIntro();
+            checkAnimation();
+        });
+    </script>
+</body>
+</html>
+
+
+
+

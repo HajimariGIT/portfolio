@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonathan's Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        header {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+            border-bottom: 2px solid #00aaff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        nav .left {
+            display: flex;
+            align-items: center;
+        }
+
+        nav .left a {
+            margin-right: auto;
+        }
+
+        nav .right {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            padding: 0.5em 1em;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: #00aaff;
+        }
+
+        main {
+            display: flex;
+            flex: 1;
+            padding-top: 4em;
+            justify-content: center;
+        }
+
+        .slideshow-container {
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 70%;
+            max-width: 1000px;
+        }
+
+        .media-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            max-width: 960px;
+            max-height: 540px;
+            overflow: hidden;
+        }
+
+        .media-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .media-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .arrow-button {
+            width: auto;
+            height: auto;
+            padding: 0.5em 1.5em;
+            background-color: #00aaff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 25px;
+            position: absolute;
+            bottom: 10px;
+            font-size: 1em;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .arrow-left {
+            left: 10px;
+        }
+
+        .arrow-right {
+            right: 10px;
+        }
+
+        .arrow-button:hover {
+            background-color: #008ecc;
+            transform: scale(1.05);
+        }
+
+        .right-section {
+            flex: 1;
+            padding: 2em;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .right-section h2 {
+            color: #00aaff;
+            margin-top: 0;
+            margin-bottom: 0.5em;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            color: #dcdcdc;
+            margin-bottom: 1.5em;
+            border-bottom: 2px solid #ffffff;
+            display: inline-block;
+            padding-bottom: 0.2em;
+        }
+
+        .description {
+            flex: 1;
+            font-size: 1.2em; 
+            line-height: 1.6;
+            font-family: 'Roboto', sans-serif; 
+        }
+
+        button.back-button {
+            background-color: #00aaff;
+            color: #fff;
+            border: none;
+            padding: 0.5em 1em;
+            margin-top: 2em;
+            cursor: pointer;
+            border-radius: 25px;
+            font-size: 1em;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s, transform 0.3s;
+            align-self: center;
+        }
+
+        button.back-button:hover {
+            background-color: #008ecc;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 1000px) {
+            main {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .slideshow-container {
+                width: 100%;
+                max-width: none;
+            }
+
+            .arrow-button {
+                padding: 0.5em 1em;
+                font-size: 0.9em;
+            }
+
+            .arrow-left {
+                left: 10px;
+            }
+
+            .arrow-right {
+                right: 10px;
+            }
+
+            .right-section {
+                padding: 1em;
+            }
+
+            p{
+                font-size: 3.5vw;
+
+            }
+        }
+
+        p{
+            font-size: 1.1vw;
+        }
+
+        @media (max-width: 1741px)
+        {
+
+            p{
+                font-size: 1.5vw;
+
+            }
+
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="left">
+                <a href="index.html">Home</a>
+            </div>
+            <div class="right">
+               
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="slideshow-container">
+            <div class="media-container" id="media-container">
+               
+            </div>
+            <button class="arrow-button arrow-left" onclick="previousMedia()">Previous</button>
+            <button class="arrow-button arrow-right" onclick="nextMedia()">Next</button>
+        </div>
+        <div class="right-section">
+            <h2>Chessboard </h2>
+            <div class="subtitle">3D model </div>
+            <div class="description">
+                <p>
+
+                    I created a 3D model of a chessboard entirely in Maya, including all the pieces and the board. Everything was crafted and fully textured by me.
+                    <br>
+                    <br>
+
+                   
+
+
+                </p>
+                <button class="back-button" onclick="goBack()">Back to Portfolio</button>
+            </div>
+        </div>
+    </main>
+    <script>
+        const media = [
+            { type: 'image', src: 'images/art_chess.PNG' },
+            { type: 'image', src: 'images/art_chess_1.PNG' },
+            { type: 'image', src: 'images/art_chess_2.PNG' },
+            { type: 'image', src: 'images/art_chess_3.png' },
+            
+           
+         
+          
+        ];
+        let currentMediaIndex = 0;
+
+        function updateMedia() {
+            const mediaContainer = document.getElementById('media-container');
+            const currentMedia = media[currentMediaIndex];
+
+            if (currentMedia.type === 'image') {
+                mediaContainer.innerHTML = `<img src="${currentMedia.src}" alt="Game Image">`;
+            } else if (currentMedia.type === 'video') {
+                mediaContainer.innerHTML = `
+                    <video controls>
+                        <source src="${currentMedia.src}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>`;
+            }
+        }
+
+        function previousMedia() {
+            currentMediaIndex = (currentMediaIndex - 1 + media.length) % media.length;
+            updateMedia();
+        }
+
+        function nextMedia() {
+            currentMediaIndex = (currentMediaIndex + 1) % media.length;
+            updateMedia();
+        }
+
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateMedia();
+        });
+    </script>
+</body>
+</html>
+
+
